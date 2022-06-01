@@ -13,42 +13,35 @@
   / {
     keymap {
       compatible = "zmk,keymap";
-        layer0 {
+        colemakdh {
           bindings = <
-          &kp Q &kp W &kp F &kp P &kp B &kp J &kp L &kp U &kp Y &kp SEMICOLON &kp A &kp R &kp S &kp T &kp G &kp M &kp N &kp E &kp I &kp O &kp Z &kp X &kp C &kp D &kp V &kp K &kp H &kp BACKSPACE &kp COMMA &kp DOT &kp LEFT_CONTROL &kp LEFT_SHIFT &lt 6 SPACE &tog 3
-          >;
-        };layer1 {
-          bindings = <
-          &kp Q &kp W &kp E &kp R &kp T &kp Y &kp U &kp I &kp O &kp P &kp A &kp S &kp D &kp F &kp G &kp H &kp J &kp K &kp L &kp SEMICOLON &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp BACKSPACE &kp COMMA &kp DOT &kp LEFT_CONTROL &kp LEFT_SHIFT &lt 6 SPACE &tog 3
-          >;
-        };layer2 {
-          bindings = <
-          LCTL(KC_M) &kp C_AC_BACK &kp UP &kp C_AC_FORWARD &kp PAGE_UP LCTL(KC_W) LCTL(KC_T) LCTL(KC_N) RCS(KC_P) LALT(KC_UP) &kp CAPSLOCK &kp LEFT &kp DOWN &kp RIGHT &kp PAGE_DOWN LCTL(KC_B) LCTL(KC_PGUP) LALT(KC_1) LCTL(KC_PGDN) OSL(4) LCTL(KC_0) LCTL(KC_MINS) &kp C_AC_REFRESH LCTL(KC_PLUS) OSL(8) LCTL(KC_F) RCTL(KC_J) LALT(KC_D) LSA(KC_ENT) LALT(KC_DOWN) &to 0 &trans &mo 6 &tog 5
-          >;
-        };layer3 {
-          bindings = <
-          KC_EXLM KC_AT KC_HASH KC_DLR KC_PERC KC_PLUS &kp N7 &kp N8 &kp N9 KC_ASTR KC_UNDERSCORE KC_LCBR KC_LPRN &kp LEFT_BRACKET &kp SINGLE_QUOTE &kp N0 &kp N1 &kp N2 &kp N3 &kp MINUS KC_QUES KC_RCBR KC_RPRN &kp RIGHT_BRACKET KC_DQUO &kp EQUAL &kp N4 &kp N5 &kp N6 &kp SLASH &to 0 &trans &trans &tog 4
-          >;
-        };layer4 {
-          bindings = <
-          &kp C_MUTE &kp C_VOLUME_DOWN &kp C_STOP &kp C_VOLUME_UP &trans KC_CIRC KC_AMPR KC_ASTR KC_LPRN KC_RPRN KC_TILD &kp C_PREVIOUS &kp C_PLAY_PAUSE &kp C_NEXT &trans &kp BACKSLASH KC_CIRC KC_AMPR KC_ASTR &trans &kp GRAVE &kp C_BRIGHTNESS_DEC &kp F20 &kp C_BRIGHTNESS_INC &trans KC_PIPE KC_LT KC_GT KC_QUES KC_QUES &to 0 &trans &trans &trans
-          >;
-        };layer5 {
-          bindings = <
-          &trans KC_BTN4 KC_WH_U KC_BTN5 &trans &trans &trans KC_MS_U &trans &trans &trans KC_BTN2 KC_WH_D KC_BTN1 &trans &trans KC_MS_L KC_MS_D KC_MS_R &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &tog 5 &trans &trans &trans
-          >;
-        };layer6 {
-          bindings = <
-          &kp ESCAPE LALT(KC_LEFT) LALT(KC_RGHT) OSM(MOD_HYPR) &kp INSERT &kp PAGE_UP &kp HOME &kp UP &kp END &kp ESCAPE &kp TAB OSM(MOD_LGUI) OSM(MOD_LALT) &kp ENTER &tog 6 &kp PAGE_DOWN &kp LEFT &kp DOWN &kp RIGHT &kp DELETE LCTL(KC_Z) LCTL(KC_X) LCTL(KC_C) &kp CAPSLOCK LCTL(KC_V) OSL(7) &kp BACKSPACE OSM(MOD_RSFT) OSM(MOD_RCTL) &kp K_APPLICATION &trans &trans &trans &trans
-          >;
-        };layer7 {
-          bindings = <
-          &trans &trans &trans &trans &trans RCS(KC_PSCR) &kp F7 &kp F8 &kp F9 &kp F10 &trans &trans &trans &trans &trans &kp PRINTSCREEN &kp F1 &kp F2 &kp F3 &kp F11 &trans &trans &trans &trans &trans LSFT(KC_PSCR) &kp F4 &kp F5 &kp F6 &kp F12 &trans &trans &trans &trans
-          >;
-        };layer8 {
-          bindings = <
-          &trans C(S(G(KC_LEFT))) LGUI(KC_TAB) C(S(G(KC_RIGHT))) &trans &trans LGUI(KC_P7) LGUI(KC_UP) LGUI(KC_P9) &trans &trans C(G(KC_LEFT)) LALT(KC_TAB) C(G(KC_RIGHT)) &trans &trans LGUI(KC_LEFT) C(G(KC_UP)) LGUI(KC_RGHT) &trans &trans &trans &trans &trans SGUI(KC_Q) C(G(KC_DOWN)) LGUI(KC_P1) LGUI(KC_DOWN) LGUI(KC_P3) &trans &trans &trans &trans &trans
+          &kp Q &kp W &kp F &kp P &kp B     &kp J &kp L &kp U &kp Y &kp SEMICOLON
+          &kp A &kp R &kp S &kp T &kp G     &kp M &kp N &kp E &kp I &kp O
+          &kp Z &kp X &kp C &kp D &kp V     &kp K &kp H &kp BACKSPACE &kp COMMA &kp DOT
+              &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt 1 SPACE &tog 2
           >;
         };
+
+        // Main modifiers and arrow keys
+		extend {
+            bindings = <
+            &kp ESC  &trans &trans  &trans  &trans    			        &kp PG_UP  &kp HOME &kp UP &kp END &kp CAPS
+            &kp TAB &sk LGUI  &sk LALT  &kp ENTER  &kp LCTRL 			&kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT   &kp DEL
+            &kp LC(Z)  &kp LC(X) &kp LC(C) &kp CAPS   &kp LC(V)         &kp LC(BSPC) &kp BSPC &trans &trans  &trans
+                                                &trans &trans    &trans  &trans
+            >;
+		};
+
+        layer3 {
+          // numbers and symbols
+          bindings = <
+          &kp EXCL &kp AT &kp POUND &kp DLLR &kp PRCNT      &kp PLUS &kp N7 &kp N8 &kp N9 &kp STAR
+          &kp UNDER &kp LBRC &kp LPAR &kp LBKT &kp SQT      &kp N0 &kp N1 &kp N2 &kp N3 &kp MINUS
+          &kp QMARK &kp RBRC &kp RPAR &kp RBKT &kp DQT      &kp EQUAL &kp N4 &kp N5 &kp N6 &kp SLASH
+                  &to 0 &trans      &trans &trans
+
+          >;
+        };
+
     };
   };
