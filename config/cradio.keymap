@@ -15,30 +15,40 @@
       compatible = "zmk,keymap";
         colemakdh {
           bindings = <
-          &kp Q &kp W &kp F &kp P &kp B     &kp J &kp L &kp U &kp Y &kp SEMICOLON
-          &kp A &kp R &kp S &kp T &kp G     &kp M &kp N &kp E &kp I &kp O
-          &kp Z &kp X &kp C &kp D &kp V     &kp K &kp H &kp BACKSPACE &kp COMMA &kp DOT
-              &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt 1 SPACE &tog 2
+            &kp Q &kp W &kp F &kp P &kp B     &kp J &kp L &kp U &kp Y &kp SEMICOLON
+            &kp A &kp R &kp S &kp T &kp G     &kp M &kp N &kp E &kp I &kp O
+            &kp Z &kp X &kp C &kp D &kp V     &kp K &kp H &kp BACKSPACE &kp COMMA &kp DOT
+                &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt 1 SPACE &tog 2
           >;
         };
 
         // Main modifiers and arrow keys
 		extend {
             bindings = <
-            &kp ESC  &trans &trans  &trans  &trans    			        &kp PG_UP  &kp HOME &kp UP &kp END &kp CAPS
-            &kp TAB &sk LGUI  &sk LALT  &kp ENTER  &kp LCTRL 			&kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT   &kp DEL
-            &kp LC(Z)  &kp LC(X) &kp LC(C) &kp CAPS   &kp LC(V)         &kp LC(BSPC) &kp BSPC &trans &trans  &trans
-                                                &trans &trans    &trans  &trans
+                &kp ESC  &trans &trans  &trans  &trans    			        &kp PG_UP  &kp HOME &kp UP &kp END &kp CAPS
+                &kp TAB &sk LGUI  &sk LALT  &kp ENTER  &kp LCTRL 			&kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT   &kp DEL
+                &kp LC(Z)  &kp LC(X) &kp LC(C) &kp CAPS   &kp LC(V)         &kp LC(BSPC) &kp BSPC &trans &trans  &trans
+                                                    &trans &trans           &trans  &trans
             >;
 		};
 
         layer3 {
           // numbers and symbols
           bindings = <
-          &kp EXCL &kp AT &kp POUND &kp DLLR &kp PRCNT      &kp PLUS &kp N7 &kp N8 &kp N9 &kp STAR
-          &kp UNDER &kp LBRC &kp LPAR &kp LBKT &kp SQT      &kp N0 &kp N1 &kp N2 &kp N3 &kp MINUS
-          &kp QMARK &kp RBRC &kp RPAR &kp RBKT &kp DQT      &kp EQUAL &kp N4 &kp N5 &kp N6 &kp SLASH
-                  &to 0 &trans      &trans &trans
+            &kp EXCL &kp AT &kp POUND &kp DLLR &kp PRCNT      &kp PLUS &kp N7 &kp N8 &kp N9 &kp STAR
+            &kp UNDER &kp LBRC &kp LPAR &kp LBKT &kp SQT      &kp N0 &kp N1 &kp N2 &kp N3 &kp MINUS
+            &kp QMARK &kp RBRC &kp RPAR &kp RBKT &kp DQT      &kp EQUAL &kp N4 &kp N5 &kp N6 &kp SLASH
+                    &to 0 &trans      &trans &trans
+
+          >;
+        };
+        layer4 {
+          // window manager layer
+          bindings = <
+            &trans &kp LC(LS(LG(LEFT))) &kp LG(KC_TAB) &kp LC(LS(LG(RGIHT))) &trans     &trans &kp LG(KP_N7) &kp LG(UP) &kp LG(KP_N9) &trans
+            &trans &kp LC(LG(LEFT)) &kp LA(TAB) &kp LC(LG(RIGHT)) &trans         &trans  &kp LG(LEFT) &kp LC(LG(UP)) &kp LG(RIGHT) &trans
+            &trans &trans &trans &trans &LG(RS(Q))          &kp LC(LG(DOWN)) &kp LG(KP_N1) &kp LG(DOWN) &kp LG(KP_N3) &trans
+                                                &trans &trans           &trans &trans
 
           >;
         };
