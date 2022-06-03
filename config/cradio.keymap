@@ -32,8 +32,8 @@
             >;
 		};
 
+        // numbers and symbols
         layer3 {
-          // numbers and symbols
           bindings = <
           &kp EXCL &kp AT &kp POUND &kp DLLR &kp PRCNT      &kp PLUS &kp N7 &kp N8 &kp N9 &kp STAR
           &kp UNDER &kp LBRC &kp LPAR &kp LBKT &kp SQT      &kp N0 &kp N1 &kp N2 &kp N3 &kp MINUS
@@ -43,12 +43,12 @@
           >;
         };
 
+        // window manager layer
         layer4 {
-          // window manager layer
           bindings = <
-          &trans &kp LC(LS(LG(LEFT))) &kp LG(KC_TAB) &kp LC(LS(LG(RGIHT))) &trans     &trans &kp LG(KP_N7) &kp LG(UP) &kp LG(KP_N9) &trans
+          &trans &kp LC(LS(LG(LEFT))) &kp LG(TAB) &kp LC(LS(LG(RGIHT))) &trans     &trans &kp LG(KP_N7) &kp LG(UP) &kp LG(KP_N9) &trans
           &trans &kp LC(LG(LEFT)) &kp LA(TAB) &kp LC(LG(RIGHT)) &trans         &trans  &kp LG(LEFT) &kp LC(LG(UP)) &kp LG(RIGHT) &trans
-          &trans &trans &trans &trans &LG(RS(Q))          &kp LC(LG(DOWN)) &kp LG(KP_N1) &kp LG(DOWN) &kp LG(KP_N3) &trans
+          &trans &trans &trans &trans &kp LG(RS(Q))          &kp LC(LG(DOWN)) &kp LG(KP_N1) &kp LG(DOWN) &kp LG(KP_N3) &trans
                                               &trans &trans           &trans &trans
 
           >;
