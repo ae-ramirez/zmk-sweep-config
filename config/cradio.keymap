@@ -63,7 +63,7 @@
         combo_wm {
             timeout-ms = <80>;
             key-positions = <30 33>;
-            bindings = <&mo 3>;
+            bindings = <&sl 3>;
         };
     };
 };
