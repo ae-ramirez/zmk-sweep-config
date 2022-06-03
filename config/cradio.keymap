@@ -46,7 +46,7 @@
         // window manager layer
         layer4 {
           bindings = <
-          &trans &kp LC(LS(LG(LEFT))) &kp LG(TAB) &kp LC(LS(LG(RGIHT))) &trans     &trans &kp LG(KP_N7) &kp LG(UP) &kp LG(KP_N9) &trans
+          &trans &kp LC(LS(LG(LEFT))) &kp LG(TAB) &kp LC(LS(LG(RIGHT))) &trans     &trans &kp LG(KP_N7) &kp LG(UP) &kp LG(KP_N9) &trans
           &trans &kp LC(LG(LEFT)) &kp LA(TAB) &kp LC(LG(RIGHT)) &trans         &trans  &kp LG(LEFT) &kp LC(LG(UP)) &kp LG(RIGHT) &trans
           &trans &trans &trans &trans &kp LG(RS(Q))          &kp LC(LG(DOWN)) &kp LG(KP_N1) &kp LG(DOWN) &kp LG(KP_N3) &trans
                                               &trans &trans           &trans &trans
