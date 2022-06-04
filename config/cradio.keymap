@@ -18,7 +18,7 @@
           &kp Q &kp W &kp F &kp P &kp B     &kp J &kp L &kp U &kp Y &kp SEMICOLON
           &kp A &kp R &kp S &kp T &kp G     &kp M &kp N &kp E &kp I &kp O
           &kp Z &kp X &kp C &kp D &kp V     &kp K &kp H &kp BACKSPACE &kp COMMA &kp DOT
-              &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt 1 SPACE &tog 2
+              &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt 1 SPACE &mo 2
           >;
         };
 
