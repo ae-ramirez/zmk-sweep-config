@@ -9,31 +9,49 @@
   #include <dt-bindings/zmk/keys.h>
   #include <dt-bindings/zmk/bt.h>
   #include <dt-bindings/zmk/ext_power.h>
+  #include <dt-bindings/zmk/mouse.h>
+
+  #define MAIN 0    // colemak-dh
+  #define NUM_S 1   // num + symbols
+  #define MED_S 2   // media + symbols
+  #define MOUSE 3   // mouse
+  #define FUN 4     // function
+  #define EXT 5     // extend
+  #define WM 6      // window manager
+
+  #define MOVE_UP1 MOVE_VERT(-1200)
+  #define MOVE_DOWN1 MOVE_VERT(1200)
+  #define MOVE_LEFT1 MOVE_HOR(-1200)
+  #define MOVE_RIGHT1 MOVE_HOR(1200)
 
   / {
     keymap {
       compatible = "zmk,keymap";
+
+        // main layer, colemak
         colemakdh {
           bindings = <
           &kp Q &kp W &kp F &kp P &kp B     &kp J &kp L &kp U &kp Y &kp SEMICOLON
           &kp A &kp R &kp S &kp T &kp G     &kp M &kp N &kp E &kp I &kp O
           &kp Z &kp X &kp C &kp D &kp V     &kp K &kp H &kp BACKSPACE &kp COMMA &kp DOT
-              &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt 1 SPACE &mo 2
+              &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt EXT SPACE &mo NUM_S
           >;
         };
 
-        // Main modifiers and arrow keys
-		extend {
-            bindings = <
-            &kp ESC  &trans &trans  &trans  &trans    			        &kp PG_UP  &kp HOME &kp UP &kp END &kp CAPS
-            &kp TAB &sk LGUI  &sk LALT  &kp ENTER  &kp LCTRL 			&kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT   &kp DEL
-            &kp LC(Z)  &kp LC(X) &kp LC(C) &kp CAPS   &kp LC(V)         &kp LC(BSPC) &kp BSPC &trans &trans  &trans
-                                                &trans &trans           &trans  &trans
-            >;
-		};
-
         // numbers and symbols
-        layer2 {
+        num_symb {
+          bindings = <
+          &kp EXCL &kp AT &kp POUND &kp DLLR &kp PRCNT      &kp PLUS &kp N7 &kp N8 &kp N9 &kp STAR
+          &kp UNDER &kp LBRC &kp LPAR &kp LBKT &kp SQT      &kp N0 &kp N1 &kp N2 &kp N3 &kp MINUS
+          &kp QMARK &kp RBRC &kp RPAR &kp RBKT &kp DQT      &kp EQUAL &kp N4 &kp N5 &kp N6 &kp SLASH
+                  &trans &trans      &trans &trans
+
+          >;
+        };
+
+        // TODO
+        // media and more symbols
+        media_symb {
           bindings = <
           &kp EXCL &kp AT &kp POUND &kp DLLR &kp PRCNT      &kp PLUS &kp N7 &kp N8 &kp N9 &kp STAR
           &kp UNDER &kp LBRC &kp LPAR &kp LBKT &kp SQT      &kp N0 &kp N1 &kp N2 &kp N3 &kp MINUS
@@ -43,8 +61,42 @@
           >;
         };
 
+        // mouse layer
+        mouse {
+          bindings = <
+          &trans &mkp MB4 &mwh SCROLL_UP &mkp MB5 &trans        &trans &trans &mmv MOVE_UP1 &trans &trans
+          &trans &mkp RCLK &mwh SCROLL_DOWN &mkp LCLK &trans  &trans &mmv MOVE_LEFT1 &mmv MOVE_DOWN1 &mmv MOVE_RIGHT1 &trans
+          &trans &trans &trans &trans &trans                    &trans &trans &trans &trans &trans
+                                      &tog MOUSE &trans             &trans &trans
+
+          >;
+        };
+
+        // TODO
+        // function keys
+        function {
+          bindings = <
+          &trans &kp LC(LS(LG(LEFT))) &kp LG(TAB) &kp LC(LS(LG(RIGHT))) &trans     &trans &kp LG(KP_N7) &kp LG(UP) &kp LG(KP_N9) &trans
+          &trans &kp LC(LG(LEFT)) &kp LA(TAB) &kp LC(LG(RIGHT)) &trans         &trans  &kp LG(LEFT) &kp LC(LG(UP)) &kp LG(RIGHT) &trans
+          &trans &trans &trans &trans &kp LG(RS(Q))          &kp LC(LG(DOWN)) &kp LG(KP_N1) &kp LG(DOWN) &kp LG(KP_N3) &trans
+                                              &trans &trans           &trans &trans
+
+          >;
+        };
+
+        // main modifiers and arrow keys
+		extend {
+            bindings = <
+            &kp ESC  &trans &trans  &trans  &trans    			        &kp PG_UP  &kp HOME &kp UP &kp END &kp CAPS
+            &kp TAB &sk LGUI  &sk LALT  &kp ENTER  &kp LCTRL 			&kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT   &kp DEL
+            &kp LC(Z)  &kp LC(X) &kp LC(C) &kp CAPS   &kp LC(V)         &kp LC(BSPC) &kp BSPC &trans &trans  &trans
+                                                &trans &trans           &trans  &trans
+            >;
+		};
+
+        // TODO
         // window manager layer
-        layer3 {
+        win_man{
           bindings = <
           &trans &kp LC(LS(LG(LEFT))) &kp LG(TAB) &kp LC(LS(LG(RIGHT))) &trans     &trans &kp LG(KP_N7) &kp LG(UP) &kp LG(KP_N9) &trans
           &trans &kp LC(LG(LEFT)) &kp LA(TAB) &kp LC(LG(RIGHT)) &trans         &trans  &kp LG(LEFT) &kp LC(LG(UP)) &kp LG(RIGHT) &trans
@@ -60,10 +112,18 @@
 / {
     combos {
         compatible = "zmk,combos";
+
         combo_wm {
             timeout-ms = <80>;
             key-positions = <30 33>;
-            bindings = <&sl 3>;
+            bindings = <&sl WM>;
         };
+
+        combo_mouse_mode {
+            timeout-ms = <80>;
+            key-positions = <16 33>;
+            bindings = <&tog MOUSE>;
+        };
+
     };
 };
