@@ -85,14 +85,14 @@
         };
 
         // main modifiers and arrow keys
-		extend {
+        extend {
             bindings = <
-            &kp ESC  &trans &trans  &trans  &trans    			        &kp PG_UP  &kp HOME &kp UP &kp END &kp CAPS
-            &kp TAB &sk LGUI  &sk LALT  &kp ENTER  &kp LCTRL 			&kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT   &kp DEL
-            &kp LC(Z)  &kp LC(X) &kp LC(C) &kp CAPS   &kp LC(V)         &kp LC(BSPC) &kp BSPC &trans &trans  &trans
-                                                &trans &trans           &trans  &trans
+            &kp ESC  &trans &trans  &trans  &trans                     &kp PG_UP  &kp HOME &kp UP &kp END &trans
+            &kp TAB &sk LGUI  &sk LALT  &kp ENTER  &kp LCTRL           &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &trans
+            &kp LC(Z)  &kp LC(X) &kp LC(C) &kp CAPS   &kp LC(V)        &kp LC(BSPC) &trans &kp DEL &trans  &trans
+                                                &trans &trans         &trans  &trans
             >;
-		};
+        };
 
         // TODO
         // window manager layer
