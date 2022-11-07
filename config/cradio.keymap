@@ -25,6 +25,16 @@
   #define MOVE_RIGHT1 MOVE_HOR(1200)
 
   / {
+    behaviors {
+        td0: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <300>;
+            bindings = <&mo NUM_S>, <&mo MED_S>;
+        };
+    };
+
     keymap {
       compatible = "zmk,keymap";
 
@@ -34,7 +44,7 @@
           &kp Q &kp W &kp F &kp P &kp B     &kp J &kp L &kp U &kp Y &kp SEMICOLON
           &kp A &kp R &kp S &kp T &kp G     &kp M &kp N &kp E &kp I &kp O
           &kp Z &kp X &kp C &kp D &kp V     &kp K &kp H &kp BACKSPACE &kp COMMA &kp DOT
-              &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt EXT SPACE &mo NUM_S
+              &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt EXT SPACE &td0
           >;
         };
 
@@ -49,15 +59,13 @@
           >;
         };
 
-        // TODO
         // media and more symbols
         media_symb {
           bindings = <
-          &kp EXCL &kp AT &kp POUND &kp DLLR &kp PRCNT      &kp PLUS &kp N7 &kp N8 &kp N9 &kp STAR
-          &kp UNDER &kp LBRC &kp LPAR &kp LBKT &kp SQT      &kp N0 &kp N1 &kp N2 &kp N3 &kp MINUS
-          &kp QMARK &kp RBRC &kp RPAR &kp RBKT &kp DQT      &kp EQUAL &kp N4 &kp N5 &kp N6 &kp SLASH
-                  &to 0 &trans      &trans &trans
-
+          &kp K_MUTE  &kp K_VOL_DN  &kp K_STOP2  &kp K_VOL_UP  &trans        &trans  &trans    &trans     &trans     &trans
+          &trans      &kp K_PREV    &kp K_PP     &kp K_NEXT    &trans        &trans  &kp BSLH  &kp TILDE  &kp GRAVE  &trans
+          &trans      &kp C_BRI_DN  &trans       &kp C_BRI_UP  &trans        &trans  &kp PIPE  &trans     &trans     &trans
+                                                        &trans &trans       &trans &trans
           >;
         };
 
