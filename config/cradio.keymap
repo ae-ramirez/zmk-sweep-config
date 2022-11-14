@@ -12,12 +12,13 @@
   #include <dt-bindings/zmk/mouse.h>
 
   #define MAIN 0    // colemak-dh
-  #define NUM_S 1   // num + symbols
-  #define MED_S 2   // media + symbols
-  #define MOUSE 3   // mouse
-  #define FUN 4     // function
-  #define EXT 5     // extend
-  #define WM 6      // window manager
+  #define GAME 1    // kind of qwerty for games
+  #define NUM_S 2   // num + symbols
+  #define MED_S 3   // media + symbols
+  #define MOUSE 4   // mouse
+  #define FUN 5     // function
+  #define EXT 6     // extend
+  #define WM 7      // window manager
 
   #define MOVE_UP1 MOVE_VERT(-1200)
   #define MOVE_DOWN1 MOVE_VERT(1200)
@@ -45,6 +46,15 @@
           &kp A &kp R &kp S &kp T &kp G     &kp M &kp N &kp E &kp I &kp O
           &kp Z &kp X &kp C &kp D &kp V     &kp K &kp H &kp BACKSPACE &kp COMMA &kp DOT
               &kp LEFT_CONTROL &kp LEFT_SHIFT   &lt EXT SPACE &td0
+          >;
+        };
+
+        game {
+          bindings = <
+          &kp B      &kp Q  &kp W  &kp E  &kp R     &kp J  &kp L  &kp U          &kp Y      &kp SEMICOLON
+          &kp LCTRL  &kp A  &kp S  &kp D  &kp F     &kp M  &kp N  &kp E          &kp I      &kp O
+          &kp TAB    &kp Z  &kp X  &kp C  &kp V     &kp K  &kp H  &kp BACKSPACE  &kp COMMA  &kp DOT
+                             &kp SPACE &kp LSHFT   &lt EXT SPACE &td0
           >;
         };
 
@@ -129,6 +139,13 @@
             timeout-ms = <80>;
             key-positions = <16 33>;
             bindings = <&tog MOUSE>;
+        };
+
+        combo_game_mode {
+            timeout-ms = <150>;
+            key-positions = <2 3 6 7>;
+            layers = <MAIN GAME>;
+            bindings = <&tog GAME>;
         };
 
     };
