@@ -106,7 +106,7 @@
             &kp ESC  &trans &trans  &trans  &trans                     &kp PG_UP  &kp HOME &kp UP &kp END &trans
             &kp TAB &sk LGUI  &sk LALT  &kp ENTER  &kp LCTRL           &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &trans
             &kp LC(Z)  &kp LC(X) &kp LC(C) &kp CAPS   &kp LC(V)        &sl FUN &trans &kp DEL &trans  &trans
-                                                &trans &trans         &trans  &trans
+                                &kp LEFT_CONTROL &kp LEFT_SHIFT       &lt EXT SPACE &td0
             >;
         };
 
